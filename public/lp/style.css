@@ -1,0 +1,133 @@
+:root {
+  --blue: #1e7fd1;
+  --blue-deep: #1668ad;
+  --blue-dark: #0f4d85;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--blue); color: var(--white); font-family: "Poppins", system-ui, sans-serif; }
+a { color: inherit; text-decoration: none; }
+
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 28px;
+  background: linear-gradient(to bottom, rgba(15,77,133,0.75), rgba(15,77,133,0));
+  backdrop-filter: blur(6px);
+}
+.brand img { height: 44px; width: 44px; border-radius: 50%; object-fit: cover; }
+.nav nav { display: flex; gap: 22px; font-weight: 600; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
+.nav nav a { opacity: 0.85; transition: opacity 0.2s; }
+.nav nav a:hover { opacity: 1; }
+
+/* HERO — scroll-driven canvas */
+.hero { height: 500vh; position: relative; }
+.hero-sticky {
+  position: sticky; top: 0; height: 100vh; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+#burger-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain;
+}
+.hero-copy {
+  position: relative; z-index: 2; text-align: center;
+  pointer-events: none;
+  text-shadow: 0 6px 30px rgba(0,0,0,0.35);
+}
+.hero-copy .script {
+  font-family: "Caveat Brush", cursive;
+  font-size: clamp(80px, 14vw, 200px);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+.hero-copy .cursive {
+  font-family: "Pacifico", cursive;
+  font-size: clamp(48px, 8vw, 120px);
+  font-weight: 400;
+  margin-top: -0.1em;
+  transform: rotate(-3deg);
+}
+.hero-copy .star { font-size: 22px; margin: 18px 0 8px; opacity: 0.9; }
+.hero-copy .tag {
+  font-family: "Caveat Brush", cursive;
+  letter-spacing: 0.3em; font-size: clamp(14px, 1.6vw, 20px);
+}
+.scroll-hint {
+  position: absolute; bottom: -38vh; left: 50%; transform: translateX(-50%);
+  font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.7;
+  animation: bob 2s ease-in-out infinite;
+}
+@keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+/* INFO */
+.info {
+  padding: 120px 24px; display: flex; justify-content: center;
+  background: var(--blue);
+}
+.info-card {
+  max-width: 720px; width: 100%;
+  background: var(--blue-deep);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 40px 36px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+}
+.info-card h3 {
+  font-family: "Caveat Brush", cursive;
+  font-size: clamp(24px, 3.2vw, 34px);
+  margin-bottom: 22px; line-height: 1.15;
+}
+.info-card ul { list-style: none; display: grid; gap: 14px; font-size: 16px; }
+.info-card li { display: flex; gap: 12px; align-items: flex-start; }
+.info-card li span { font-size: 18px; }
+
+/* LINKS */
+.links-section {
+  padding: 60px 24px 100px;
+  display: flex; flex-direction: column; align-items: center; gap: 22px;
+}
+.links-section h3 {
+  font-family: "Poppins", sans-serif; font-weight: 800;
+  font-size: clamp(22px, 3vw, 30px); margin-bottom: 10px;
+}
+.links { width: 100%; max-width: 640px; display: grid; gap: 14px; }
+.link-btn {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--blue-deep);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 14px;
+  padding: 18px 22px;
+  text-align: center; justify-content: center;
+  font-size: 15px; letter-spacing: 0.06em;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.link-btn:hover { transform: translateY(-2px); background: var(--blue-dark); }
+.link-btn-featured { flex-direction: column; gap: 4px; padding: 20px 22px; }
+.link-btn small { opacity: 0.8; font-weight: 400; letter-spacing: 0; font-size: 12px; }
+
+.site-footer {
+  margin-top: 0;
+  width: 100%;
+  aspect-ratio: 1640 / 240;
+  background-size: 60% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 0 14px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--blue-dark);
+  font-weight: 600;
+}
+.site-footer p { text-shadow: 0 1px 0 rgba(255,255,255,0.4); }
+
+@media (max-width: 640px) {
+  .nav nav { display: none; }
+  .info { padding: 80px 18px; }
+  .info-card { padding: 28px 22px; }
+}
