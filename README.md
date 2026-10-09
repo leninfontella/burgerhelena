@@ -1,29 +1,69 @@
-# Welcome to your Lovable project
+# Helena Burger
 
-This project was built with [Lovable](https://lovable.dev).
+Site institucional da Helena Burger, com apresentação da marca, horários de atendimento, localização e atalhos de contato. A página inicial inclui uma animação do hambúrguer controlada pela rolagem.
 
-## Build with Lovable
+## Tecnologias
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- React 19
+- TanStack Start e TanStack Router
+- TypeScript
+- Vite
+- Tailwind CSS
+- Componentes Radix UI
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Requisitos
 
-## Development
+- Node.js 20 ou superior
+- npm 10 ou superior
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Como executar
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o ambiente de desenvolvimento:
+
+```bash
 npm run dev
 ```
 
-## Built with
+O Vite exibirá no terminal o endereço local da aplicação.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Scripts
+
+| Comando             | Descrição                                 |
+| ------------------- | ----------------------------------------- |
+| `npm run dev`       | Inicia o servidor de desenvolvimento      |
+| `npm run build`     | Gera a versão de produção                 |
+| `npm run build:dev` | Gera uma build em modo de desenvolvimento |
+| `npm run preview`   | Executa localmente a build gerada         |
+| `npm run lint`      | Verifica o código com ESLint              |
+| `npm run format`    | Formata os arquivos com Prettier          |
+
+## Estrutura principal
+
+```text
+public/
+  frames/        Quadros usados na animação por rolagem
+  lp/            Página, estilos e scripts da landing page
+src/
+  components/    Componentes reutilizáveis de interface
+  hooks/         Hooks React
+  lib/           Utilitários e tratamento de erros
+  routes/        Rotas do TanStack Router
+```
+
+A rota `/` encaminha o visitante para a landing page em `public/lp/index.html`.
+
+## Produção
+
+Gere os arquivos de produção com:
+
+```bash
+npm run build
+```
+
+Antes da publicação, substitua os links provisórios (`href="#"`) em `public/lp/index.html` pelos endereços reais do WhatsApp, pedidos, cardápio e redes sociais.
